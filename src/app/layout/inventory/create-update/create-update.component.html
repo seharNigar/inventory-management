@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ isEditMode ? 'Edit' : 'Add' }} Inventory</h4>
+</div>
+<div class="modal-body">
+  <form [formGroup]="inventoryForm" id="inventoryForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" class="form-control" />
+      <div *ngIf="inventoryForm.get('name')?.invalid && inventoryForm.get('name')?.touched">
+        <small class="text-danger">Name is required.</small>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input id="quantity" type="number" formControlName="quantity" class="form-control" />
+      <div *ngIf="inventoryForm.get('quantity')?.invalid && inventoryForm.get('quantity')?.touched">
+        <small class="text-danger">Quantity is required and must be a number.</small>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input id="price" type="number" formControlName="price" class="form-control" />
+      <div *ngIf="inventoryForm.get('price')?.invalid && inventoryForm.get('price')?.touched">
+        <small class="text-danger">Price is required and must be a number.</small>
+      </div>
+    </div>
+<div class="modal-footer">
+  <button type="submit" form="inventoryForm" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cancel click')">Close</button>
+</div>

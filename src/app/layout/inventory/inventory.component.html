@@ -1,0 +1,27 @@
+<!-- Inventory List Table -->
+<div class="container mt-4">
+  <h2>Inventory List</h2>
+  <button class="btn btn-primary mb-3" (click)="openModal()">Add New Inventory</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inventory of inventories">
+        <th scope="row">{{ inventory.id }}</th>
+        <td>{{ inventory.name }}</td>
+        <td>{{ inventory.quantity }}</td>
+        <td>{{ inventory.price }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="openModal(inventory)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
